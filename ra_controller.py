@@ -16,8 +16,8 @@ root.title('Robotic Arm Controller')
 # root.iconbitmap('favicon.ico')
 
 
-content = ttk.Frame(root, padding=(3, 3, 12, 12))
-frame = ttk.Frame(content, borderwidth=5,
+content = ttk.Frame(root)
+frame = ttk.Frame(content,
                   relief="sunken", width=200, height=100)
 angle_1 = ttk.Label(content, text="Angle 1", font="Times  14  ")
 angle_1_val = ttk.Entry(content)
@@ -80,6 +80,25 @@ content.rowconfigure(6, weight=0)
 content.rowconfigure(7, weight=1)
 
 
-checkered(w, 5)
+checkered(w, 100)
+
+
+def click(event):
+    x, y = event.x, abs(event.y-canvas_height)
+    print('{}, {}'.format(x, y))
+
+
+def key(event):
+    print("pressed", repr(event.char))
+
+
+w.bind("<Key>", key)
+w.bind("<Button-1>", click)
+
+
+#root.bind('<Button-1>', click)
 
 root.mainloop()
+
+
+# csfadfsdgdsfgsdfgz
