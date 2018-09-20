@@ -35,6 +35,8 @@ angle_3_val = ttk.Entry(content)
 Iteration = ttk.Label(content, text="Iteration",
                       font="Times  14 ")
 itr_val = Spinbox(content, from_=0, to=10)
+variable = StringVar(content)
+variable.set("Angle")  # default value
 
 
 redbutton = Button(content, text='stop', fg='red')
@@ -55,7 +57,7 @@ w = Canvas(frame,
            height=canvas_height)
 
 content.grid(column=0, row=0, sticky=(N, S, E, W))
-frame.grid(column=2, row=0, columnspan=3, rowspan=10, sticky=(N, S, E, W))
+frame.grid(column=2, row=0, columnspan=3, rowspan=11, sticky=(N, S, E, W))
 angle_1.grid(column=0, row=0, columnspan=2, sticky=(N, W), padx=5)
 angle_1_val.grid(column=0, row=1, columnspan=2,
                  sticky=(N, E, W), pady=5, padx=10)
@@ -69,16 +71,21 @@ angle_3.grid(column=0, row=4, columnspan=2, sticky=(N, W), padx=5)
 angle_3_val.grid(column=0, row=5, columnspan=2,
                  sticky=(N, E, W), pady=5, padx=10)
 
-Iteration.grid(column=0, row=6, columnspan=2, sticky=(N, W), padx=5)
-itr_val.grid(column=0, row=7, columnspan=2,
+Iteration.grid(column=0, row=7, columnspan=2, sticky=(N, W), padx=5)
+itr_val.grid(column=0, row=8, columnspan=2,
              sticky=(N, E, W), pady=5, padx=10)
 
 
 w.grid(column=2, row=0, columnspan=3, rowspan=6)
-greenbutton.grid(column=0, row=8, columnspan=2,
+greenbutton.grid(column=0, row=9, columnspan=2,
                  sticky=(N, E, W), pady=5, padx=10)
-redbutton.grid(column=0, row=9, columnspan=2,
+redbutton.grid(column=0, row=10, columnspan=2,
                sticky=(N, E, W),  pady=5, padx=10)
+
+
+option = OptionMenu(content, variable, "Angle", "Path")
+option.grid(column=0, row=6, columnspan=2,
+            sticky=(N, E, W), pady=5, padx=10)
 
 
 root.columnconfigure(0, weight=1)
@@ -96,8 +103,8 @@ content.rowconfigure(5, weight=0)
 content.rowconfigure(6, weight=0)
 content.rowconfigure(7, weight=0)
 content.rowconfigure(8, weight=0)
-content.rowconfigure(9, weight=1)
-
+content.rowconfigure(9, weight=0)
+content.rowconfigure(10, weight=1)
 
 checkered(w, line_distance)
 selected_points = []
