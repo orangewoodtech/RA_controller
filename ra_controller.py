@@ -123,7 +123,7 @@ def knobread():
 
 root = Tk()
 root.title('Robotic Arm Controller')
-root.iconbitmap('orangewood.ico')
+# root.iconbitmap('orangewood.ico')
 
 content = ttk.Frame(root, borderwidth=1)
 frame = ttk.Frame(content, borderwidth=1,
